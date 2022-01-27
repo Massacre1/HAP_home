@@ -1,0 +1,13 @@
+base36==0.1.1
+cffi==1.15.0
+cryptography==35.0.0
+future==0.18.2
+h11==0.12.0
+HAP-python==4.3.0
+ifaddr==0.1.7
+pycparser==2.20
+pypiwin32==223
+PyQRCode==1.2.1
+pywin32==302
+yeelight==0.7.8
+zeroconf==0.36.11
