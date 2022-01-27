@@ -137,7 +137,7 @@ def starter(addr_4, port, name):
     driver.start()
 
 
-def starterESP(addr_4, port):
+def starterESP(addr_4, port, _):
     while True:
         try:
             all_ = discover()
