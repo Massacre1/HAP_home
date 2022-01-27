@@ -138,12 +138,12 @@ def starter(addr_4, port, name):
 
 
 def starterESP(addr_4, port):
-    all_ = discover()
-    print(all_)
-    for addr in all_:
-        if addr[1][1] == b'wemos':
-            while True:
-                try:
+    while True:
+        try:
+            all_ = discover()
+            print(all_)
+            for addr in all_:
+                if addr[1][1] == b'wemos':
                     starter(addr[0], port=port, name=addr_4)
-                except Exception as e:
-                    clog(e)
+        except Exception as e:
+            clog(str(e))
