@@ -3,6 +3,8 @@ from pyhap.accessory import Accessory
 from pyhap.accessory_driver import AccessoryDriver
 from yeelight import Bulb
 
+from inner_mid.clogger import clog
+
 
 class BulbLamp:
 
@@ -64,7 +66,6 @@ class Lightbulb(Accessory):
         self.brightness = int(self.bulb.props_('bright'))
         self.power = True if self.bulb.props_('power') == u'on' else False
 
-
     def toggle_power(self, value: bool):
         if value:
             self.power = True
@@ -94,7 +95,11 @@ class Lightbulb(Accessory):
 
 
 def starter(addr_4, port):
-    driver = AccessoryDriver(port=port, persist_file=f'{addr_4}.state')
-    accessory = Lightbulb(addr_4=addr_4, display_name='Lightbulb', driver=driver)
-    driver.add_accessory(accessory=accessory)
-    driver.start()
+    while True:
+        try:
+            driver = AccessoryDriver(port=port, persist_file=f'{addr_4}.state')
+            accessory = Lightbulb(addr_4=addr_4, display_name='Lightbulb', driver=driver)
+            driver.add_accessory(accessory=accessory)
+            driver.start()
+        except Exception as e:
+            clog(str(e))

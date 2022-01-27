@@ -7,6 +7,8 @@ from pyhap import const
 from pyhap.accessory import Accessory
 from pyhap.accessory_driver import AccessoryDriver
 
+from inner_mid.clogger import clog
+
 
 def _status(host):
     try:
@@ -140,4 +142,8 @@ def starterESP(addr_4, port):
     print(all_)
     for addr in all_:
         if addr[1][1] == b'wemos':
-            starter(addr[0], port=port, name=addr_4)
+            while True:
+                try:
+                    starter(addr[0], port=port, name=addr_4)
+                except Exception as e:
+                    clog(e)
