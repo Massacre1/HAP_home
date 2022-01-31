@@ -10,7 +10,7 @@ coms = [
     (starterESP, 'Wemos 1', [256, 51829, True]),
     (starter, 'Lamp 3', [204, 51824, True])
 ]
-
+# a
 if __name__ == '__main__':
     proc = {}
     clog('Pub started, fill your pint!')
