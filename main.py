@@ -2,12 +2,11 @@ from multiprocessing import freeze_support, Process
 
 from inner_mid.clogger import clog
 from lamps.controller import starter
-from lamps.controllerESP import starterESP
 
 coms = [
     (starter, 'Lamp 1', [200, 51826, False]),
     (starter, 'Lamp 2', [202, 51827, True]),
-    (starterESP, 'Wemos 1', [256, 51829, True]),
+    # (starterESP, 'Wemos 1', [256, 51829, True]),
     (starter, 'Lamp 3', [204, 51824, True])
 ]
 # a
