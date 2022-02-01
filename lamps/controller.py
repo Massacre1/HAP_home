@@ -241,4 +241,3 @@ def starter(addr_4, port, rgblamp):
             driver.start()
         except Exception as e:
             clog(str(e))
-            raise e
