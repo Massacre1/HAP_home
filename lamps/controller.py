@@ -5,12 +5,14 @@ from yeelight import Bulb, LightType
 
 from inner_mid.clogger import clog
 
+DURATION = 1000
+
 
 class BulbLamp:
 
     def __init__(self, addr_4):
         self.addr = f'192.168.0.{addr_4}'
-        self.bulb = Bulb(self.addr, effect='smooth', duration=1000, auto_on=False)
+        self.bulb = Bulb(self.addr, effect='smooth', duration=DURATION, auto_on=False)
 
     def turn_on(self):
         self.bulb.turn_on()
@@ -47,7 +49,7 @@ class BulbLampESP:
 
     def __init__(self, addr_4):
         self.addr = f'192.168.0.{addr_4}'
-        self.bulb = Bulb(self.addr, effect='smooth', duration=1000, auto_on=False)
+        self.bulb = Bulb(self.addr, effect='smooth', duration=DURATION, auto_on=False)
 
     def turn_on(self):
         self.bulb.turn_on(light_type=LightType.Ambient)

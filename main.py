@@ -3,6 +3,10 @@ from multiprocessing import freeze_support, Process
 from inner_mid.clogger import clog
 from lamps.controller import starter
 
+import lamps.controller
+
+lamps.controller.DURATION = 10000
+
 coms = [
     (starter, 'Lamp 1', [200, 51826, False]),
     (starter, 'Lamp 2', [202, 51827, True]),
