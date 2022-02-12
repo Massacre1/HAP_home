@@ -7,10 +7,10 @@ from inner_mid.clogger import clog
 lamps.controller.DURATION = 2000
 
 coms = [
-    (lamps.starter, 'Lamp 1', [200, 51826, False]),
-    (lamps.starter, 'Lamp 2', [202, 51827, True]),
+    (lamps.controller.starter, 'Lamp 1', [200, 51826, False]),
+    (lamps.controller.starter, 'Lamp 2', [202, 51827, True]),
     # (starterESP, 'Wemos 1', [256, 51829, True]),
-    (lamps.starter, 'Lamp 3', [204, 51824, True]),
+    (lamps.controller.starter, 'Lamp 3', [204, 51824, True]),
     (vacuum.vacuum.starter, 'Pelageus', [171, 51828, False])
 ]
 # a
