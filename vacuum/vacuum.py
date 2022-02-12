@@ -4,16 +4,14 @@ from pyhap import const
 from pyhap.accessory import Accessory
 from pyhap.accessory_driver import AccessoryDriver
 
-from inner_mid.clogger import clog
-
 
 class Vacuum:
 
     def __init__(self, addr_4):
         self.addr = addr_4
         self.vac = DreameVacuumMiot(f'192.168.0.{addr_4}',
-                                   '327241466b697a4a626f6d6d54513377',
-                                   model='dreame.vacuum.mc1808')
+                                    '327241466b697a4a626f6d6d54513377',
+                                    model='dreame.vacuum.mc1808')
 
     def turn_on(self):
         self.vac.start()
@@ -53,9 +51,16 @@ class Vacuum_HAP(Accessory):
         return self.bulb.get_power()
 
 
-def starter(addr_4, port, name):
+def starter_(addr_4, port, name):
     driver = AccessoryDriver(port=port, persist_file=f'{name}.state')
     accessory = Vacuum_HAP(addr_4=addr_4, display_name='Vacuum', driver=driver)
     driver.add_accessory(accessory=accessory)
     driver.start()
 
+
+def starter(addr_4, port, name):
+    while True:
+        try:
+            starter_(addr_4, port, name)
+        except Exception as e:
+            print(e)
