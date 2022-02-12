@@ -4,7 +4,7 @@ import lamps.controller
 import vacuum.vacuum
 from inner_mid.clogger import clog
 
-lamps.controller.DURATION = 10000
+lamps.controller.DURATION = 2000
 
 coms = [
     (lamps.starter, 'Lamp 1', [200, 51826, False]),
