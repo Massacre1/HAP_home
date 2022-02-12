@@ -63,4 +63,4 @@ def starter(addr_4, port, name):
         try:
             starter_(addr_4, port, name)
         except Exception as e:
-            print(e)
+            print(str(e))
