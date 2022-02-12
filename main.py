@@ -1,17 +1,17 @@
 from multiprocessing import freeze_support, Process
 
-from inner_mid.clogger import clog
-from lamps.controller import starter
-
 import lamps.controller
+import vacuum.vacuum
+from inner_mid.clogger import clog
 
 lamps.controller.DURATION = 10000
 
 coms = [
-    (starter, 'Lamp 1', [200, 51826, False]),
-    (starter, 'Lamp 2', [202, 51827, True]),
+    (lamps.starter, 'Lamp 1', [200, 51826, False]),
+    (lamps.starter, 'Lamp 2', [202, 51827, True]),
     # (starterESP, 'Wemos 1', [256, 51829, True]),
-    (starter, 'Lamp 3', [204, 51824, True])
+    (lamps.starter, 'Lamp 3', [204, 51824, True]),
+    (vacuum.vacuum.starter, 'Pelageus', [171, 51828, False])
 ]
 # a
 if __name__ == '__main__':
